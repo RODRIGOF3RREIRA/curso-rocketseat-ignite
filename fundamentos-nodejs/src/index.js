@@ -1,0 +1,11 @@
+const { response } = require("express");
+const { request } = require("express");
+const express = require("express");
+
+const app = express();
+
+app.get("/", (request, response) => {
+  return response.json({ message: "Hello worl" });
+});
+
+app.listen(3333);

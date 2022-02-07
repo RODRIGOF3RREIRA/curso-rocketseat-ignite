@@ -1,5 +1,7 @@
 FinApi - Financeia
+
 Requisitos
+
 [] Deve ser possível criar umma conta
 
 [] Deve ser possível buscar o extrato bancário do cliente

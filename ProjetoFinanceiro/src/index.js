@@ -55,7 +55,6 @@ app.post("/deposit", verifyExistsAccountCPF, (request, response) => {
 
   const statementOperation = {
     description,
-    test,
     amount,
     created_at: new Date(),
     type: "credit",

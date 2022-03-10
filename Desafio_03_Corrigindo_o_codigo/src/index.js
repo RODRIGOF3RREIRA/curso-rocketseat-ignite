@@ -22,6 +22,7 @@ app.post("/repositories", (request, response) => {
     techs,
     likes: 0,
   };
+
   repositories.push(repository);
 
   return response.status(201).json(repository);
@@ -29,7 +30,7 @@ app.post("/repositories", (request, response) => {
 
 app.put("/repositories/:id", (request, response) => {
   const { id } = request.params;
-  const { title, url, techs } = request.body;
+  const { title, techs, url } = request.body;
 
   const updatedRepository = {
     title,
@@ -37,7 +38,7 @@ app.put("/repositories/:id", (request, response) => {
     url,
   };
 
-  repositoryIndex = repositories.findindex(
+  repositoryIndex = repositories.findIndex(
     (repository) => repository.id === id
   );
 

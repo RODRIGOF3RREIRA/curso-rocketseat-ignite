@@ -14,7 +14,6 @@ class ImportCategoryUseCase {
     loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
         return new Promise((resolve, reject) => {
             const stream = fs.createReadStream(file.path);
-<<<<<<< HEAD
 
             const categories: IImportCategory[] = [];
 
@@ -54,35 +53,7 @@ class ImportCategoryUseCase {
                     description,
                 });
             }
-=======
-
-            const categories: IImportCategory[] = [];
-
-            const parseFile = csvParse();
-
-            stream.pipe(parseFile);
-
-            parseFile.on('data', async line => {
-                const [name, description] = line;
-
-                categories.push({
-                    name,
-                    description,
-                });
-            });
-            parseFile.on('end', () => {
-                resolve(categories);
-            });
-            parseFile.on('error', err => {
-                reject(err);
-            });
->>>>>>> 077600aaf02364613c63bc56f317d937974d01db
         });
-    }
-
-    async execute(file: Express.Multer.File): Promise<void> {
-        const categories = await this.loadCategories(file);
-        console.log(categories);
     }
 }
 
